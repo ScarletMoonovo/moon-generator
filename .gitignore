@@ -1,7 +1,10 @@
 # My Custom
+
 .idea
 target
 yuzi-generator.iml
+moon-generator.iml
+application-local.yml
 test-antd-preview
 
 ### Java template
