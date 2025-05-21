@@ -26,6 +26,12 @@ export default [
     ],
   },
   {
+    path: '/generator/add',
+    icon: 'plus',
+    component: './Generator/Add',
+    name: '创建生成器',
+  },
+  {
     path: '/tets/file',
     icon: 'home',
     component: './Test/File',
