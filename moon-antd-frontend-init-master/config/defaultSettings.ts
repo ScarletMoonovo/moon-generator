@@ -15,7 +15,7 @@ const Settings: ProLayoutProps & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'Moon代码生成',
+  title: 'ShareBits 代码生成',
   pwa: true,
   iconfontUrl: '',
   token: {

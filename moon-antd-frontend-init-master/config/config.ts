@@ -73,7 +73,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: 'Moon代码生成',
+  title: 'ShareBits 代码生成',
   layout: {
     locale: true,
     ...defaultSettings,
