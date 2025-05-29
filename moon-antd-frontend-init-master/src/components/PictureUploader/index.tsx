@@ -1,7 +1,7 @@
-import { uploadFileUsingPost } from '@/services/backend/fileController';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { message, Upload, UploadProps } from 'antd';
-import React, { useState } from 'react';
+import {uploadFileUsingPost} from '@/services/backend/fileController';
+import {LoadingOutlined, PlusOutlined} from '@ant-design/icons';
+import {message, Upload, UploadProps} from 'antd';
+import React, {useState} from 'react';
 import {COS_HOST} from "@/constants";
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
  * @constructor
  */
 const PictureUploader: React.FC<Props> = (props) => {
-  const { biz, value, onChange } = props;
+  const {biz, value, onChange} = props;
   const [loading, setLoading] = useState(false);
 
   const uploadProps: UploadProps = {
@@ -48,14 +48,14 @@ const PictureUploader: React.FC<Props> = (props) => {
 
   const uploadButton = (
     <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>上传</div>
+      {loading ? <LoadingOutlined/> : <PlusOutlined/>}
+      <div style={{marginTop: 8}}>上传</div>
     </div>
   );
 
   return (
     <Upload {...uploadProps}>
-      {value ? <img src={value} alt="picture" style={{ width: '100%' }} /> : uploadButton}
+      {value ? <img src={value} alt="picture" style={{width: '100%'}}/> : uploadButton}
     </Upload>
   );
 };

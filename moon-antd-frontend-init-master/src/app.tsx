@@ -1,10 +1,10 @@
 import Footer from '@/components/Footer';
-import { getLoginUserUsingGet } from '@/services/backend/userController';
-import type { RunTimeLayoutConfig } from '@umijs/max';
-import { history } from '@umijs/max';
+import {getLoginUserUsingGet} from '@/services/backend/userController';
+import type {RunTimeLayoutConfig} from '@umijs/max';
+import {history} from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
-import { AvatarDropdown } from './components/RightContent/AvatarDropdown';
-import { requestConfig } from './requestConfig';
+import {AvatarDropdown} from './components/RightContent/AvatarDropdown';
+import {requestConfig} from './requestConfig';
 
 const loginPath = '/user/login';
 
@@ -16,7 +16,7 @@ export async function getInitialState(): Promise<InitialState> {
     currentUser: undefined,
   };
   // 如果不是登录页面，执行
-  const { location } = history;
+  const {location} = history;
   if (location.pathname !== loginPath) {
     try {
       const res = await getLoginUserUsingGet();
@@ -28,7 +28,7 @@ export async function getInitialState(): Promise<InitialState> {
     // 模拟登录用户
     // const mockUser: API.LoginUserVO = {
     //   userAvatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
-    //   userName: 'yupi',
+    //   userName: 'moon',
     //   userRole: 'admin',
     // };
     // initialState.currentUser = mockUser;
@@ -38,17 +38,17 @@ export async function getInitialState(): Promise<InitialState> {
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 // @ts-ignore
-export const layout: RunTimeLayoutConfig = ({ initialState }) => {
+export const layout: RunTimeLayoutConfig = ({initialState}) => {
   return {
     avatarProps: {
       render: () => {
-        return <AvatarDropdown />;
+        return <AvatarDropdown/>;
       },
     },
     waterMarkProps: {
       content: initialState?.currentUser?.userName,
     },
-    footerRender: () => <Footer />,
+    footerRender: () => <Footer/>,
     menuHeaderRender: undefined,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,

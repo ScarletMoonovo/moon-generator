@@ -29,9 +29,6 @@ import static com.moon.web.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户服务实现
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Service
 @Slf4j
@@ -40,7 +37,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     /**
      * 盐值，混淆密码
      */
-    public static final String SALT = "yupi";
+    public static final String SALT = "moon";
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {

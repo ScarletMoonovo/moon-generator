@@ -3,20 +3,20 @@ export default [
     path: '/user',
     layout: false,
     routes: [
-      { path: '/user/login', component: './User/Login' },
-      { path: '/user/register', component: './User/Register' },
+      {path: '/user/login', component: './User/Login'},
+      {path: '/user/register', component: './User/Register'},
     ],
   },
   // { path: '/welcome', icon: 'smile', component: './Welcome', name: '欢迎页' },
-  { path: '/', icon: 'home', component: './Index', name: '主页' },
+  {path: '/', icon: 'home', component: './Index', name: '主页'},
   {
     path: '/admin',
     icon: 'crown',
     name: '管理页',
     access: 'canAdmin',
     routes: [
-      { path: '/admin', redirect: '/admin/user' },
-      { icon: 'table', path: '/admin/user', component: './Admin/User', name: '用户管理' },
+      {path: '/admin', redirect: '/admin/user'},
+      {icon: 'table', path: '/admin/user', component: './Admin/User', name: '用户管理'},
       {
         icon: 'tools',
         path: '/admin/generator',
@@ -44,7 +44,7 @@ export default [
     component: './Generator/Detail',
     name: '生成器详情',
     hideInMenu: true,
-  },  
+  },
   {
     path: '/tets/file',
     icon: 'home',
@@ -52,6 +52,6 @@ export default [
     name: '文件上传下载测试',
     hideInMenu: true,
   },
-  { path: '/', redirect: '/welcome' },
-  { path: '*', layout: false, component: './404' },
+  {path: '/', redirect: '/welcome'},
+  {path: '*', layout: false, component: './404'},
 ];

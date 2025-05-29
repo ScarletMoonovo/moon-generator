@@ -1,4 +1,4 @@
-import { Avatar, Card } from 'antd';
+import {Avatar, Card} from 'antd';
 import React from 'react';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
  * @constructor
  */
 const AuthorInfo: React.FC<Props> = (props) => {
-  const { data } = props;
+  const {data} = props;
 
   const user = data?.user;
 
@@ -19,9 +19,9 @@ const AuthorInfo: React.FC<Props> = (props) => {
   }
 
   return (
-    <div style={{ marginTop: 16 }}>
+    <div style={{marginTop: 16}}>
       <Card.Meta
-        avatar={<Avatar size={64} src={user.userAvatar} />}
+        avatar={<Avatar size={64} src={user.userAvatar}/>}
         title={user.userName}
         description={user.userProfile}
       />

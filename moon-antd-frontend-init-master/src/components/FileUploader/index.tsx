@@ -1,8 +1,8 @@
-import { uploadFileUsingPost } from '@/services/backend/fileController';
-import { InboxOutlined } from '@ant-design/icons';
-import { message, UploadFile, UploadProps } from 'antd';
+import {uploadFileUsingPost} from '@/services/backend/fileController';
+import {InboxOutlined} from '@ant-design/icons';
+import {message, UploadFile, UploadProps} from 'antd';
 import Dragger from 'antd/es/upload/Dragger';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 interface Props {
   biz: string;
@@ -16,7 +16,7 @@ interface Props {
  * @constructor
  */
 const FileUploader: React.FC<Props> = (props) => {
-  const { biz, value, description, onChange } = props;
+  const {biz, value, description, onChange} = props;
   const [loading, setLoading] = useState(false);
 
   const uploadProps: UploadProps = {
@@ -26,7 +26,7 @@ const FileUploader: React.FC<Props> = (props) => {
     maxCount: 1,
     fileList: value,
     disabled: loading,
-    onChange: ({ fileList }) => {
+    onChange: ({fileList}) => {
       onChange?.(fileList);
     },
     customRequest: async (fileObj: any) => {
@@ -51,7 +51,7 @@ const FileUploader: React.FC<Props> = (props) => {
   return (
     <Dragger {...uploadProps}>
       <p className="ant-upload-drag-icon">
-        <InboxOutlined />
+        <InboxOutlined/>
       </p>
       <p className="ant-upload-text">点击或拖拽文件上传</p>
       <p className="ant-upload-hint">{description}</p>

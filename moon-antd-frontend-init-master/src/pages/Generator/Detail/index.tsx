@@ -1,29 +1,26 @@
 import AuthorInfo from '@/pages/Generator/Detail/components/AuthorInfo';
 import FileConfig from '@/pages/Generator/Detail/components/FileConfig';
 import ModelConfig from '@/pages/Generator/Detail/components/ModelConfig';
-import {
-  downloadGeneratorByIdUsingGet,
-  getGeneratorVoByIdUsingGet,
-} from '@/services/backend/generatorController';
-import { Link, useModel, useParams } from '@@/exports';
-import { DownloadOutlined, EditOutlined } from '@ant-design/icons';
-import { PageContainer } from '@ant-design/pro-components';
-import { Button, Card, Col, Image, message, Row, Space, Tabs, Tag, Typography } from 'antd';
-import { saveAs } from 'file-saver';
+import {downloadGeneratorByIdUsingGet, getGeneratorVoByIdUsingGet,} from '@/services/backend/generatorController';
+import {Link, useModel, useParams} from '@@/exports';
+import {DownloadOutlined, EditOutlined} from '@ant-design/icons';
+import {PageContainer} from '@ant-design/pro-components';
+import {Button, Card, Col, Image, message, Row, Space, Tabs, Tag, Typography} from 'antd';
+import {saveAs} from 'file-saver';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 /**
  * 生成器详情页
  * @constructor
  */
 const GeneratorDetailPage: React.FC = () => {
-  const { id } = useParams();
+  const {id} = useParams();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<API.GeneratorVO>({});
-  const { initialState } = useModel('@@initialState');
-  const { currentUser } = initialState ?? {};
+  const {initialState} = useModel('@@initialState');
+  const {currentUser} = initialState ?? {};
   const my = currentUser?.id === data?.userId;
 
   /**
@@ -59,7 +56,7 @@ const GeneratorDetailPage: React.FC = () => {
     }
 
     return (
-      <div style={{ marginBottom: 8 }}>
+      <div style={{marginBottom: 8}}>
         {tags.map((tag: string) => {
           return <Tag key={tag}>{tag}</Tag>;
         })}
@@ -72,7 +69,7 @@ const GeneratorDetailPage: React.FC = () => {
    */
   const downloadButton = data.distPath && currentUser && (
     <Button
-      icon={<DownloadOutlined />}
+      icon={<DownloadOutlined/>}
       onClick={async () => {
         const blob = await downloadGeneratorByIdUsingGet(
           {
@@ -97,7 +94,7 @@ const GeneratorDetailPage: React.FC = () => {
    */
   const editButton = my && (
     <Link to={`/generator/update?id=${data.id}`}>
-      <Button icon={<EditOutlined />}>编辑</Button>
+      <Button icon={<EditOutlined/>}>编辑</Button>
     </Link>
   );
 
@@ -117,7 +114,7 @@ const GeneratorDetailPage: React.FC = () => {
             <Typography.Paragraph type="secondary">基础包：{data.basePackage}</Typography.Paragraph>
             <Typography.Paragraph type="secondary">版本：{data.version}</Typography.Paragraph>
             <Typography.Paragraph type="secondary">作者：{data.author}</Typography.Paragraph>
-            <div style={{ marginBottom: 24 }} />
+            <div style={{marginBottom: 24}}/>
             <Space size="middle">
               <Button type="primary">立即使用</Button>
               {downloadButton}
@@ -125,31 +122,32 @@ const GeneratorDetailPage: React.FC = () => {
             </Space>
           </Col>
           <Col flex="320px">
-            <Image src={data.picture} />
+            <Image src={data.picture}/>
           </Col>
         </Row>
       </Card>
-      <div style={{ marginBottom: 24 }} />
+      <div style={{marginBottom: 24}}/>
       <Card>
         <Tabs
           size="large"
           defaultActiveKey={'fileConfig'}
-          onChange={() => {}}
+          onChange={() => {
+          }}
           items={[
             {
               key: 'fileConfig',
               label: '文件配置',
-              children: <FileConfig data={data} />,
+              children: <FileConfig data={data}/>,
             },
             {
               key: 'modelConfig',
               label: '模型配置',
-              children: <ModelConfig data={data} />,
+              children: <ModelConfig data={data}/>,
             },
             {
               key: 'userInfo',
               label: '作者信息',
-              children: <AuthorInfo data={data} />,
+              children: <AuthorInfo data={data}/>,
             },
           ]}
         />

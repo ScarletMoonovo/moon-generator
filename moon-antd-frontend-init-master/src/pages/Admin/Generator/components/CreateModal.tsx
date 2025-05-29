@@ -1,7 +1,7 @@
-import { addGeneratorUsingPost } from '@/services/backend/generatorController';
-import { ProColumns, ProTable } from '@ant-design/pro-components';
+import {addGeneratorUsingPost} from '@/services/backend/generatorController';
+import {ProColumns, ProTable} from '@ant-design/pro-components';
 import '@umijs/max';
-import { message, Modal } from 'antd';
+import {message, Modal} from 'antd';
 import React from 'react';
 
 interface Props {
@@ -37,7 +37,7 @@ const handleAdd = async (fields: API.GeneratorAddRequest) => {
  * @constructor
  */
 const CreateModal: React.FC<Props> = (props) => {
-  const { visible, columns, onSubmit, onCancel } = props;
+  const {visible, columns, onSubmit, onCancel} = props;
 
   return (
     <Modal

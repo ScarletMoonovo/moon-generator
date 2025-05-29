@@ -1,5 +1,5 @@
-import { FileOutlined } from '@ant-design/icons';
-import { Descriptions, DescriptionsProps, Divider } from 'antd';
+import {FileOutlined} from '@ant-design/icons';
+import {Descriptions, DescriptionsProps, Divider} from 'antd';
 import React from 'react';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
  * @constructor
  */
 const ModelConfig: React.FC<Props> = (props) => {
-  const { data } = props;
+  const {data} = props;
 
   const modelConfig = data?.modelConfig;
   if (!modelConfig) {
@@ -96,8 +96,8 @@ const ModelConfig: React.FC<Props> = (props) => {
 
           return (
             <>
-              <Descriptions column={2} key={index} items={modelItems} />
-              <Divider />
+              <Descriptions column={2} key={index} items={modelItems}/>
+              <Divider/>
             </>
           );
         })}
@@ -110,7 +110,7 @@ const ModelConfig: React.FC<Props> = (props) => {
       <Descriptions
         title={
           <>
-            <FileOutlined /> 模型列表
+            <FileOutlined/> 模型列表
           </>
         }
       />

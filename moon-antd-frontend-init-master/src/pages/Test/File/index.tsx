@@ -1,14 +1,11 @@
-import { COS_HOST } from '@/constants';
-import {
-  testDownloadFileUsingGet,
-  testUploadFileUsingPost,
-} from '@/services/backend/fileController';
-import { InboxOutlined } from '@ant-design/icons';
-import { Button, Card, Divider, Flex, message, Upload, UploadProps } from 'antd';
-import { saveAs } from 'file-saver';
-import React, { useState } from 'react';
+import {COS_HOST} from '@/constants';
+import {testDownloadFileUsingGet, testUploadFileUsingPost,} from '@/services/backend/fileController';
+import {InboxOutlined} from '@ant-design/icons';
+import {Button, Card, Divider, Flex, message, Upload, UploadProps} from 'antd';
+import {saveAs} from 'file-saver';
+import React, {useState} from 'react';
 
-const { Dragger } = Upload;
+const {Dragger} = Upload;
 
 /**
  * 文件上传下载测试页面
@@ -41,7 +38,7 @@ const TestFilePage: React.FC = () => {
       <Card title="文件上传">
         <Dragger {...props}>
           <p className="ant-upload-drag-icon">
-            <InboxOutlined />
+            <InboxOutlined/>
           </p>
           <p className="ant-upload-text">Click or drag file to this area to upload</p>
           <p className="ant-upload-hint">
@@ -52,9 +49,9 @@ const TestFilePage: React.FC = () => {
       </Card>
       <Card title="文件下载" loading={!value}>
         <div>文件地址：{COS_HOST + value}</div>
-        <Divider />
-        <img src={COS_HOST + value} height={280} />
-        <Divider />
+        <Divider/>
+        <img src={COS_HOST + value} height={280}/>
+        <Divider/>
         <Button
           onClick={async () => {
             const blob = await testDownloadFileUsingGet(

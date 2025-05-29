@@ -1,12 +1,12 @@
 import CreateModal from '@/pages/Admin/Generator/components/CreateModal';
 import UpdateModal from '@/pages/Admin/Generator/components/UpdateModal';
-import { deleteGeneratorUsingPost, listGeneratorByPageUsingPost } from '@/services/backend/generatorController';
-import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { PageContainer, ProTable } from '@ant-design/pro-components';
+import {deleteGeneratorUsingPost, listGeneratorByPageUsingPost} from '@/services/backend/generatorController';
+import {PlusOutlined} from '@ant-design/icons';
+import type {ActionType, ProColumns} from '@ant-design/pro-components';
+import {ProTable} from '@ant-design/pro-components';
 import '@umijs/max';
-import { Button, message, Space, Tag, Typography, Select } from 'antd';
-import React, { useRef, useState } from 'react';
+import {Button, message, Select, Space, Tag, Typography} from 'antd';
+import React, {useRef, useState} from 'react';
 
 /**
  * 代码生成器管理页面
@@ -85,7 +85,7 @@ const GeneratorAdminPage: React.FC = () => {
       dataIndex: 'tags',
       valueType: 'text',
       renderFormItem(schema) {
-        const { fieldProps } = schema;
+        const {fieldProps} = schema;
         return <Select mode="tags" {...fieldProps as any} />
       },
       render(_, record) {
@@ -174,7 +174,7 @@ const GeneratorAdminPage: React.FC = () => {
   ];
   return (
     <div className='generator-admin-page'>
-      <Typography.Title level={4} style={{ marginBottom: 16 }}>代码生成器管理</Typography.Title>
+      <Typography.Title level={4} style={{marginBottom: 16}}>代码生成器管理</Typography.Title>
       <ProTable<API.Generator>
         headerTitle={'查询表格'}
         actionRef={actionRef}
@@ -190,14 +190,14 @@ const GeneratorAdminPage: React.FC = () => {
               setCreateModalVisible(true);
             }}
           >
-            <PlusOutlined /> 新建
+            <PlusOutlined/> 新建
           </Button>,
         ]}
         request={async (params, sort, filter) => {
           const sortField = Object.keys(sort)?.[0];
           const sortOrder = sort?.[sortField] ?? undefined;
 
-          const { data, code } = await listGeneratorByPageUsingPost({
+          const {data, code} = await listGeneratorByPageUsingPost({
             ...params,
             sortField,
             sortOrder,

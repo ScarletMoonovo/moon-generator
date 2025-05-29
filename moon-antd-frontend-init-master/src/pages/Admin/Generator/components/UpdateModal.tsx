@@ -1,7 +1,7 @@
-import { updateGeneratorUsingPost } from '@/services/backend/generatorController';
-import { ProColumns, ProTable } from '@ant-design/pro-components';
+import {updateGeneratorUsingPost} from '@/services/backend/generatorController';
+import {ProColumns, ProTable} from '@ant-design/pro-components';
 import '@umijs/max';
-import { message, Modal } from 'antd';
+import {message, Modal} from 'antd';
 import React from 'react';
 
 interface Props {
@@ -37,7 +37,7 @@ const handleUpdate = async (fields: API.GeneratorUpdateRequest) => {
  * @constructor
  */
 const UpdateModal: React.FC<Props> = (props) => {
-  const { oldData, visible, columns, onSubmit, onCancel } = props;
+  const {oldData, visible, columns, onSubmit, onCancel} = props;
 
   if (!oldData) {
     return <></>;

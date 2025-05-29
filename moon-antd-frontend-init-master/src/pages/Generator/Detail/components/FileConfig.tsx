@@ -1,5 +1,5 @@
-import { FileOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import { Descriptions, DescriptionsProps, Divider } from 'antd';
+import {FileOutlined, InfoCircleOutlined} from '@ant-design/icons';
+import {Descriptions, DescriptionsProps, Divider} from 'antd';
 import React from 'react';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
  * @constructor
  */
 const FileConfig: React.FC<Props> = (props) => {
-  const { data } = props;
+  const {data} = props;
 
   const fileConfig = data?.fileConfig;
   if (!fileConfig) {
@@ -75,7 +75,7 @@ const FileConfig: React.FC<Props> = (props) => {
             ];
 
             return (
-              <Descriptions key={index} column={1} title={file.groupName} items={groupFileItems} />
+              <Descriptions key={index} column={1} title={file.groupName} items={groupFileItems}/>
             );
           }
 
@@ -109,8 +109,8 @@ const FileConfig: React.FC<Props> = (props) => {
 
           return (
             <>
-              <Descriptions column={2} key={index} items={fileItems} />
-              <Divider />
+              <Descriptions column={2} key={index} items={fileItems}/>
+              <Divider/>
             </>
           );
         })}
@@ -123,17 +123,17 @@ const FileConfig: React.FC<Props> = (props) => {
       <Descriptions
         title={
           <>
-            <InfoCircleOutlined /> 基本信息
+            <InfoCircleOutlined/> 基本信息
           </>
         }
         column={2}
         items={items}
       />
-      <div style={{ marginBottom: 16 }} />
+      <div style={{marginBottom: 16}}/>
       <Descriptions
         title={
           <>
-            <FileOutlined /> 文件列表
+            <FileOutlined/> 文件列表
           </>
         }
       />
