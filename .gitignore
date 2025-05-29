@@ -3,7 +3,6 @@
 .idea
 target
 moon-generator.iml
-moon-generator.iml
 generated
 application-local.yml
 test-antd-preview
