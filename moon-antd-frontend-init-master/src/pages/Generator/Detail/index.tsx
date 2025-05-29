@@ -35,6 +35,7 @@ const GeneratorDetailPage: React.FC = () => {
       const res = await getGeneratorVoByIdUsingGet({
         id,
       });
+      console.log('获取生成器数据', res);
       setData(res.data || {});
     } catch (error: any) {
       message.error('获取数据失败，' + error.message);
@@ -81,8 +82,7 @@ const GeneratorDetailPage: React.FC = () => {
         );
         // 使用 file-saver 来保存文件
         const fullPath = data.distPath || '';
-        console.log('blob', blob);
-        saveAs(blob.data, fullPath.substring(fullPath.lastIndexOf('/') + 1));
+        saveAs(blob, fullPath.substring(fullPath.lastIndexOf('/') + 1));
       }}
     >
       下载

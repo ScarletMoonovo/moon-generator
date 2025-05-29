@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * MyBatis Plus 配置
- *
- * 
  */
 @Configuration
 @MapperScan("com.moon.springbootinit.mapper")
