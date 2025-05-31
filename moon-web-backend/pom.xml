@@ -111,6 +111,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.moon</groupId>
+            <artifactId>moon-generator-maker</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.32</version>
+        </dependency>
     </dependencies>
 
     <build>

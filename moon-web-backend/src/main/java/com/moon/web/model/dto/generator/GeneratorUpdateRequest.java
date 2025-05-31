@@ -1,6 +1,6 @@
 package com.moon.web.model.dto.generator;
 
-import com.moon.web.meta.Meta;
+import com.moon.maker.meta.Meta;
 import lombok.Data;
 
 import java.io.Serializable;

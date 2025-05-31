@@ -1,7 +1,7 @@
 package com.moon.web.model.dto.generator;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.moon.web.meta.Meta;
+import com.moon.maker.meta.Meta;
 import lombok.Data;
 
 import java.io.Serializable;

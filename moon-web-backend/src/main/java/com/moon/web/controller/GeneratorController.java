@@ -14,7 +14,7 @@ import com.moon.web.constant.UserConstant;
 import com.moon.web.exception.BusinessException;
 import com.moon.web.exception.ThrowUtils;
 import com.moon.web.manager.CosManager;
-import com.moon.web.meta.Meta;
+import com.moon.maker.meta.Meta;
 import com.moon.web.model.dto.generator.*;
 import com.moon.web.model.entity.Generator;
 import com.moon.web.model.entity.User;
