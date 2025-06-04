@@ -65,8 +65,7 @@ const TestFilePage: React.FC = () => {
             // 使用 file-saver 来保存文件
             const fullPath = COS_HOST + value;
             console.log('blob:', blob);
-            // saveAs(blob, fullPath.substring(fullPath.lastIndexOf('/') + 1));
-            saveAs(blob.data, fullPath.substring(fullPath.lastIndexOf('/') + 1));
+            saveAs(blob, fullPath.substring(fullPath.lastIndexOf('/') + 1));
           }}
         >
           点击下载文件
