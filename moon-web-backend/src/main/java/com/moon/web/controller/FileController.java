@@ -5,19 +5,20 @@ import com.moon.web.annotation.AuthCheck;
 import com.moon.web.common.BaseResponse;
 import com.moon.web.common.ErrorCode;
 import com.moon.web.common.ResultUtils;
-import com.moon.web.constant.FileConstant;
 import com.moon.web.constant.UserConstant;
 import com.moon.web.exception.BusinessException;
 import com.moon.web.manager.CosManager;
 import com.moon.web.model.dto.file.UploadFileRequest;
 import com.moon.web.model.entity.User;
 import com.moon.web.model.enums.FileUploadBizEnum;
+import com.moon.web.service.GeneratorService;
 import com.moon.web.service.UserService;
 import com.qcloud.cos.model.COSObject;
 import com.qcloud.cos.model.COSObjectInputStream;
 import com.qcloud.cos.utils.IOUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -104,7 +105,7 @@ public class FileController {
             multipartFile.transferTo(file);
             cosManager.putObject(filepath, file);
             // 返回可访问地址
-            return ResultUtils.success(FileConstant.COS_HOST + filepath);
+            return ResultUtils.success(filepath);
         } catch (Exception e) {
             log.error("file upload error, filepath = " + filepath, e);
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "上传失败");
@@ -141,6 +142,13 @@ public class FileController {
         }
     }
 
+    /**
+     * 测试文件下载
+     *
+     * @param filepath
+     * @param response
+     * @return
+     */
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     @GetMapping("/test/download/")
     public void testDownloadFile(String filepath, HttpServletResponse response) throws IOException {
@@ -151,17 +159,16 @@ public class FileController {
             // 处理下载到的流
             byte[] bytes = IOUtils.toByteArray(cosObjectInput);
             // 设置响应头
-            response.setContentType("application/octet-stream;charset=utf-8");
+            response.setContentType("application/octet-stream;charset=UTF-8");
             response.setHeader("Content-Disposition", "attachment; filename=" + filepath);
             // 写入响应
             response.getOutputStream().write(bytes);
             response.getOutputStream().flush();
         } catch (Exception e) {
-            log.error("file upload error, filepath = " + filepath, e);
+            log.error("file download error, filepath = " + filepath, e);
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "下载失败");
         } finally {
             if (cosObjectInput != null) {
-                // 关闭流
                 cosObjectInput.close();
             }
         }
