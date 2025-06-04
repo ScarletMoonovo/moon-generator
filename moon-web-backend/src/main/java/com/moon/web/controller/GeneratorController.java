@@ -348,6 +348,7 @@ public class GeneratorController {
         }
 
         // 从对象存储下载生成器的压缩包
+
         // 定义独立的工作空间
         String projectPath = System.getProperty("user.dir");
         String tempDirPath = String.format("%s/.temp/use/%s", projectPath, id);
@@ -377,7 +378,7 @@ public class GeneratorController {
         File scriptFile = FileUtil.loopFiles(unzipDistDir, 2, null)
                 .stream()
                 .filter(file -> file.isFile()
-                        && "generator.bat".equals(file.getName()))
+                        && "generator".equals(file.getName()))
                 .findFirst()
                 .orElseThrow(RuntimeException::new);
 
@@ -391,9 +392,9 @@ public class GeneratorController {
 
         // 构造命令
         File scriptDir = scriptFile.getParentFile();
-        // 注意，如果是 mac / linux 系统，要用 "./generator"
+        // 注意，如果是 mac / linux 系统，要用 "./generator"，Windows 系统则直接用脚本的绝对路径
         String scriptAbsolutePath = scriptFile.getAbsolutePath().replace("\\", "/");
-        String[] commands = new String[]{scriptAbsolutePath, "json-generate", "--file=" + dataModelFilePath};
+        String[] commands = new String[] {scriptAbsolutePath, "json-generate", "--file=" + dataModelFilePath};
 
         // 这里一定要拆分！
         ProcessBuilder processBuilder = new ProcessBuilder(commands);
